@@ -5,6 +5,7 @@ import time
 
 
 
+
 @st.cache_data
 def load_data():
     sheet_id = "14KeTtWkhsDyH9D6uq8sB_rpTC_Dt964iqcUy5iC37w4"
@@ -24,7 +25,7 @@ def build_table_html(df,team,date,game):
                     (df['Date'] == date) &
                     (df['Game'] == game) ]
 
-    columns = ['Player','FPS', 'FGM', 'FGA', 'FG %', '3PM', '3PA', '3P %',
+    columns = ['Player', 'FGM', 'FGA', 'FG %', '3PM', '3PA', '3P %',
                'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']
 
     team_score = filtered_df['PTS'].sum()
@@ -39,7 +40,6 @@ def build_table_html(df,team,date,game):
             <tbody>
             <tr>
                 <td>{row['Player']}</td>
-                <td>{row['FPS']}</td>
                 <td>{row['FGM']}</td>
                 <td>{row['FGA']}</td>
                 <td>{row['FG%']}</td>
