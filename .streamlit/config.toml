@@ -5,3 +5,6 @@ port = 8501
 
 [ui]
 wide = true
+
+[theme]
+base='light'
