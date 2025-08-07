@@ -59,6 +59,9 @@ thead {
 </style>
 """, unsafe_allow_html=True)
 
+
+st.write("Columns in dataframe:", df.columns.tolist())
+
 for team in teams:
     with st.container(border=True):
         table_html, team_score = functions.build_table_html(df,team,selected_date,selected_game)
