@@ -64,8 +64,9 @@ for team in teams:
         table_html, team_score = functions.build_table_html(df,team,selected_date,selected_game)
 
         st.subheader(f'Team: {team}', divider=True)
-        st.caption(f'Score: **{team_score}** ')
-        st.write(f'Fantasy Scores: PTS = 1 | REB = 1.2 | AST = 1.5 | STL = 2 | BLK = 2 | TO = (-2)')
+        st.caption(f'Score: **{team_score}** /n'
+                   f'Fantasy Scores: PTS = 1 | REB = 1.2 | AST = 1.5 | STL = 2 | BLK = 2 | TO = (-2)')
+
         st.markdown(table_html,unsafe_allow_html=True)
 
 
