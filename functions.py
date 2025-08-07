@@ -24,7 +24,7 @@ def build_table_html(df,team,date,game):
                     (df['Date'] == date) &
                     (df['Game'] == game) ]
 
-    columns = ['Player','👑 PTS', 'FGM', 'FGA', 'FG %', '3PM', '3PA', '3P %',
+    columns = ['Player','FPS', 'FGM', 'FGA', 'FG %', '3PM', '3PA', '3P %',
                'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']
 
     team_score = filtered_df['PTS'].sum()
@@ -39,7 +39,7 @@ def build_table_html(df,team,date,game):
             <tbody>
             <tr>
                 <td>{row['Player']}</td>
-                <td>{row['👑 PTS']}</td>
+                <td>{row['FPS']}</td>
                 <td>{row['FGM']}</td>
                 <td>{row['FGA']}</td>
                 <td>{row['FG%']}</td>
