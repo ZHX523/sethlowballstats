@@ -40,6 +40,7 @@ def build_table_html(df,team,date,game):
             <tbody>
             <tr>
                 <td>{row['Player']}</td>
+                <td>{row['FPS']}</td>
                 <td>{row['FGM']}</td>
                 <td>{row['FGA']}</td>
                 <td>{row['FG%']}</td>
