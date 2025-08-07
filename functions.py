@@ -2,13 +2,7 @@ import streamlit as st
 import pandas as pd
 import time
 
-# sheet_id = "14KeTtWkhsDyH9D6uq8sB_rpTC_Dt964iqcUy5iC37w4"
-# sheet_name = "Sheet1"
-#
-# path = csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
-#
-# df = pd.read_csv(csv_url)
-# teams = df['Team'].unique().tolist()
+
 
 
 @st.cache_data
