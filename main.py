@@ -9,7 +9,7 @@ if "data_refreshed" not in st.session_state:
 
 
 with st.sidebar:
-    if st.button("Refresh Data"):
+    if st.button("Refresh Data",key= 'refresh', use_container_width=True, type="primary"):
         st.cache_data.clear()
         st.session_state.data_refreshed = True
         st.rerun()
@@ -27,12 +27,21 @@ with st.sidebar:
     team_options = df['Date'].unique()
     selected_date = st.sidebar.selectbox("Date", team_options)
 
+    st.divider()
 
     game_options = df[df['Date'] == selected_date]['Game'].unique()
     selected_game = st.sidebar.selectbox("Select a Game", game_options)
 
     game_id = df[(df['Date'] == selected_date) & (df['Game'] == selected_game)]
 
+    st.divider()
+    st.subheader("Career Stats")
+
+    players = df['Player'].unique().tolist()
+
+
+    for names in players:
+        st.button(f'{names}', key= names, use_container_width=True)
 
 row1 = st.columns(1)
 
