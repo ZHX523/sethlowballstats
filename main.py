@@ -75,7 +75,7 @@ for team in teams:
 
         st.subheader(f'Team: {team}', divider=True)
         st.caption(f'Score: **{team_score}** \n'
-                   f'Fantasy Scores: PTS = 1 | REB = 1 | AST = 1.5 | STL = 3 | BLK = 3 | TO = (-2)')
+                   f'        Fantasy Scores: PTS = 1 | REB = 1 | AST = 1.5 | STL = 3 | BLK = 3 | TO = (-2)')
 
         st.markdown(table_html,unsafe_allow_html=True)
 
