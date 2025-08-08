@@ -39,21 +39,21 @@ def build_table_html(df,team,date,game):
         row_html += f"""
             <tbody>
             <tr>
-                <td>{row['Player']}</td>
+                <td style="width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" >{row['Player']}</td>
                 <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;"> {row['FPS']}</td>
-               <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['TS %']}</td>
-                <td>{row['FGM']}</td>
-                <td>{row['FGA']}</td>
+                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['TS %']}</td>
+                <td>{int(round(row['FGM']))}</td>
+                <td>{int(round(row['FGA']))}</td>
                 <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['FG %']}</td>
-                <td>{row['3PM']}</td>
-                <td>{row['3PA']}</td>
+                <td>{int(round(row['3PM']))}</td>
+                <td>{int(round(row['3PA']))}</td>
                 <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['3P %']}</td>
                 <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['PTS']}</td>
-                <td>{row['REB']}</td>
-                <td>{row['AST']}</td>
-                <td>{row['STL']}</td>
-                <td>{row['BLK']}</td>
-                <td>{row['TO']}</td>
+                <td>{int(round(row['REB']))}</td>
+                <td>{int(round(row['AST']))}</td>
+                <td>{int(round(row['STL']))}</td>
+                <td>{int(round(row['BLK']))}</td>
+                <td>{int(round(row['TO']))}</td>
             </tr>
             </tbody>
         """
