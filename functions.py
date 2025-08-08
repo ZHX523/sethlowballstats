@@ -32,7 +32,7 @@ def build_table_html(df,team,date,game):
 
     header_html = ""
     for i in columns:
-        header_html += f'<th> {i} </th>'
+        header_html += f'<th style="background-color: #a9a9a9">{i}</th>'
 
     row_html = ""
     for index, row in filtered_df.iterrows():
@@ -40,15 +40,15 @@ def build_table_html(df,team,date,game):
             <tbody>
             <tr>
                 <td>{row['Player']}</td>
-                <td>{row['FPS']}</td>
-                <td>{row['TS %']}</td>
+                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;"> {row['FPS']}</td>
+               <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['TS %']}</td>
                 <td>{row['FGM']}</td>
                 <td>{row['FGA']}</td>
-                <td>{row['FG %']}</td>
+                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['FG %']}</td>
                 <td>{row['3PM']}</td>
                 <td>{row['3PA']}</td>
-                <td>{row['3P %']}</td>
-                <td>{row['PTS']}</td>
+                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['3P %']}</td>
+                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['PTS']}</td>
                 <td>{row['REB']}</td>
                 <td>{row['AST']}</td>
                 <td>{row['STL']}</td>
@@ -58,11 +58,9 @@ def build_table_html(df,team,date,game):
             </tbody>
         """
 
-
-
     table_html = f"""
-                <div style="overflow-x: auto; width: 100%;">
-                  <table style="width: 100%; border-collapse: collapse;">
+            <div style="overflow-x: auto; max-width: 100%;">
+                <table style="border-collapse: collapse; table-layout: auto; margin: auto;">
                     <thead>
                       <tr>
                         {header_html}
