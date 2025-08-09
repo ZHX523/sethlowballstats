@@ -7,6 +7,8 @@ import main
 
 st.set_page_config(layout="wide")
 
+if "data_refreshed" not in st.session_state:
+    st.session_state.data_refreshed = False
 
 
 st.markdown("""
