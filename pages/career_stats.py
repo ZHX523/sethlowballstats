@@ -52,9 +52,9 @@ st.divider()
 col1, col2, col3 = st.columns(3)
 
 col_data = [
-    (col1, ["PTS", "STL", "FG %"]),
-    (col2, ["REB", "BLK", "3P %"]),
-    (col3, ["AST", "TO", "TS %"])
+    (col1, ["PTS", "REB", "AST"]),
+    (col2, ["STL", "BLK", "TO"]),
+    (col3, ["FG %", "3P %", "TS %"])
 ]
 
 for col, stats in col_data:
