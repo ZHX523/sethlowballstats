@@ -3,9 +3,9 @@ headless = true
 enableCORS = false
 port = 8501
 
-[ui]
-wide = true
 
 [theme]
 base='light'
-layout = "wide"
+
+[client]
+showSidebarNavigation = false

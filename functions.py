@@ -71,3 +71,29 @@ def build_table_html(df,team,date,game):
     """
 
     return table_html,team_score
+
+
+
+def home_button():
+    if st.button("Home", key='Home-nav', use_container_width=True):
+        st.switch_page("app.py")
+
+
+
+def refresh_buttion():
+    if st.button("Refresh Data",key= 'refresh', use_container_width=True, type="primary"):
+        st.cache_data.clear()
+        st.session_state.data_refreshed = True
+        st.rerun()
+
+    if st.session_state.data_refreshed:
+        st.success("Sucessfully Refreshed")
+        time.sleep(2)
+        st.session_state.data_refreshed = False
+        st.rerun()
+
+
+
+def career_button():
+    if st.button("Career Stats", key='Stats-nav', use_container_width=True):
+        st.switch_page('pages/career_stats.py')
