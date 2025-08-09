@@ -76,7 +76,7 @@ def build_table_html(df,team,date,game):
 
 def home_button():
     if st.button("Home", key='Home-nav', use_container_width=True):
-        st.switch_page("app.py")
+        st.switch_page("main.py")
 
 
 
