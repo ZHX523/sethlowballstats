@@ -24,12 +24,12 @@ st.markdown("""
 
 with st.sidebar:
     functions.home_button()
-
     functions.career_button()
-
+    functions.leaderboard_button()
     functions.refresh_buttion()
 
     df, teams = functions.load_data()
+    st.divider()
 
 
 player_options = df['Player'].unique().tolist()
@@ -43,7 +43,8 @@ fps = player_df['FPS'].mean().round(2)
 
 player_profile = st.container()
 player_profile.header(f'{selected_player}')
-st.markdown(f":green-badge[:material/star: Avg Fantasy Value: {fps}] :orange-badge[⚠️ No Vision!] :gray-badge[Troll!]")
+st.markdown(f":green-badge[:material/star: Avg Fantasy Value: {fps}]")
+st.divider()
 
 
 
@@ -51,16 +52,41 @@ st.markdown(f":green-badge[:material/star: Avg Fantasy Value: {fps}] :orange-bad
 col1, col2, col3 = st.columns(3)
 
 col_data = [
-    (col1, ["Avg PTS", "Avg STL", "Avg FG %"]),
-    (col2, ["Avg REB", "Avg BLK", "Avg 3P %"]),
-    (col3, ["Avg AST", "Avg TO", "Avg TS %"])
+    (col1, ["PTS", "STL", "FG %"]),
+    (col2, ["REB", "BLK", "3P %"]),
+    (col3, ["AST", "TO", "TS %"])
 ]
 
 for col, stats in col_data:
     with col:
         for stat in stats:
-            stat_container = st.container(border=True)
-            stat_container.write(stat)
-            stat_container.write("PLACE HOLDER")
+            stat_container = st.container(border=True,height=90)
+
+            value = player_df[stat].mean().round(2)
+
+            percent_stats =["FG %", "TS %", "3P %"]
+
+            if stat in percent_stats:
+                display_value = f"{value:.1%}"
+            else:
+                display_value = value
+
+            stat_container.markdown(
+                f"""
+                <div style="text-align: center; font-weight: bold; font-size: 20px;">
+                    {display_value}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+            stat_container.caption(
+                f"""
+                <p style="text-align: center; font-size: 16px; margin: 0;">
+                    {stat}
+                </p>
+                """,
+                unsafe_allow_html=True
+            )
 
 

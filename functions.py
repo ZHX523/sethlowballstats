@@ -41,13 +41,13 @@ def build_table_html(df,team,date,game):
             <tr>
                 <td style="width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" >{row['Player']}</td>
                 <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;"> {row['FPS']}</td>
-                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['TS %']}</td>
+                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['TS %']:.1%}</td>
                 <td>{int(round(row['FGM']))}</td>
                 <td>{int(round(row['FGA']))}</td>
-                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['FG %']}</td>
+                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['FG %']:.1%}</td>
                 <td>{int(round(row['3PM']))}</td>
                 <td>{int(round(row['3PA']))}</td>
-                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['3P %']}</td>
+                <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['3P %']:.1%}</td>
                 <td style="background-color: #f2f2f2; font-weight: bold; font-style: italic;">{row['PTS']}</td>
                 <td>{int(round(row['REB']))}</td>
                 <td>{int(round(row['AST']))}</td>
@@ -75,7 +75,7 @@ def build_table_html(df,team,date,game):
 
 
 def home_button():
-    if st.button("Home", key='Home-nav', use_container_width=True):
+    if st.button("Home", key='home', use_container_width=True):
         st.switch_page("main.py")
 
 
@@ -95,7 +95,7 @@ def refresh_buttion():
 
 
 def career_button():
-    if st.button("Career Stats", key='Stats-nav', use_container_width=True):
+    if st.button("Career Stats", key='stats-nav', use_container_width=True):
         st.switch_page('pages/career_stats.py')
 
 
