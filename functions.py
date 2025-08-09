@@ -97,3 +97,8 @@ def refresh_buttion():
 def career_button():
     if st.button("Career Stats", key='Stats-nav', use_container_width=True):
         st.switch_page('pages/career_stats.py')
+
+
+def leaderboard_button():
+    if st.button("Leaderboard", key='leaderboard-nav', use_container_width=True):
+        st.switch_page("main.py")

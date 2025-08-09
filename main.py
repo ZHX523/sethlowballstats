@@ -28,6 +28,8 @@ with st.sidebar:
 
     functions.career_button()
 
+    functions.leaderboard_button()
+
     functions.refresh_buttion()
 
 
