@@ -101,4 +101,4 @@ def career_button():
 
 def leaderboard_button():
     if st.button("Leaderboard", key='leaderboard-nav', use_container_width=True):
-        st.switch_page("main.py")
+        st.switch_page('pages/leaderboard.py')

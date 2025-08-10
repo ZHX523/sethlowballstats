@@ -32,6 +32,20 @@ with st.sidebar:
     st.divider()
 
 
+st.markdown("""
+    <style>
+    .sticky-profile {
+        position: sticky;
+        top: 0;
+        padding: 10px 0;
+        z-index: 999;
+
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
+
 player_options = df['Player'].unique().tolist()
 
 selected_player = st.selectbox("***Select a Player***", player_options)
@@ -42,8 +56,13 @@ player_df = df[df['Player'] == selected_player]
 fps = player_df['FPS'].mean().round(2)
 
 player_profile = st.container()
+
 player_profile.header(f'{selected_player}')
-st.markdown(f":green-badge[:material/star: Avg Fantasy Value: {fps}]")
+st.markdown(f":green-badge[:material/star: Avg Fantasy Value: **{fps}**]"
+            f":violet-badge[:material/sports_basketball: Games Played: **{len(player_df)}**]"
+            f":blue-badge[:material/moving: Number of Wins **{player_df['W/L'].sum()}**]"
+            f":red-badge[:material/trending_down: Number of Losses **{len(player_df)-player_df['W/L'].sum()}**]")
+
 st.divider()
 
 
