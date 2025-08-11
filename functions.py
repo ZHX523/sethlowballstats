@@ -26,7 +26,7 @@ def build_table_html(df,team,date,game):
                     (df['Game'] == game) ]
 
     columns = ['Player','FPS', 'TS %', 'FGM', 'FGA', 'FG %', '3PM', '3PA', '3P %',
-               'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']
+               'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO','GW']
 
     team_score = filtered_df['PTS'].sum()
 
@@ -54,19 +54,21 @@ def build_table_html(df,team,date,game):
                 <td>{int(round(row['STL']))}</td>
                 <td>{int(round(row['BLK']))}</td>
                 <td>{int(round(row['TO']))}</td>
+                <td>{int(round(row['GW']))}</td>
             </tr>
             </tbody>
         """
 
     table_html = f"""
-            <div style="overflow-x: auto; max-width: 100%;">
-                <table style="border-collapse: collapse; table-layout: auto; margin: auto;">
+            <div style="overflow-x: auto; max-width: 100%;  margin-bottom: 15px;">
+                <table style="border-collapse: collapse; table-layout: auto; margin: auto;border: 2px solid #333; ">
                     <thead>
                       <tr>
                         {header_html}
                       </tr>
                     </thead>
-                    <tbody>
+                    
+
                       {row_html}
     """
 
