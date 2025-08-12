@@ -44,7 +44,7 @@ player_avg = player_avg.round(2)
 col1, col2 = st.columns(2)
 
 with col1:
-    main_container = st.container(border=True)
+    main_container = st.container(border=False)
     main_container.header("👑  Leaderboard")
 
     for count, row in enumerate(player_avg.itertuples(index=False), start=1):
@@ -63,7 +63,7 @@ with col1:
 
 
 with col2:
-    second_container = st.container(border=True)
+    second_container = st.container(border=False)
     second_container.header("🏆  NBA Awards")
 
     second_tile = second_container.container(border=True)
