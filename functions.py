@@ -104,3 +104,23 @@ def career_button():
 def leaderboard_button():
     if st.button("Leaderboard", key='leaderboard-nav', use_container_width=True):
         st.switch_page('pages/leaderboard.py')
+
+
+def awards_tile(award,name):
+    st.markdown(
+        f"""
+        <div style="
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            font-weight: bold; 
+            font-size: 20px;  
+            height: 70px;     
+        ">
+            <div>{award}</div>
+            <div style="font-size: 20px; margin-top: 8px;">{name}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
