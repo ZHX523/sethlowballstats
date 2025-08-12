@@ -110,16 +110,22 @@ def awards_tile(award,name):
     st.markdown(
         f"""
         <div style="
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            font-weight: bold; 
-            font-size: 20px;  
-            height: 70px;     
+            display: flex;
+            gap: 0.1rem;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            overflow: visible;
+            flex-flow: column;
+            border: 1px solid rgba(49, 51, 63, 0.2);
+            border-radius: 0.5rem;
+            padding: calc(-1px + 1rem);
+            font-size: 20px;
+            justify-content: center;
+            align-items: center;
         ">
-            <div>{award}</div>
-            <div style="font-size: 20px; margin-top: 8px;">{name}</div>
+            <div style="font-weight: bold;">{award}</div>
+            <div style="font-size: 20px;">{name}</div>
         </div>
         """,
         unsafe_allow_html=True

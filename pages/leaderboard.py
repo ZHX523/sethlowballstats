@@ -66,31 +66,36 @@ with col2:
     second_container = st.container(border=False)
     second_container.header("🏆  NBA Awards")
 
-    second_tile = second_container.container(border=True)
-    second_tile.subheader('Most Likely to Turn the Ball Over')
-    second_tile.write("Xiao")
+    # second_tile = second_container.container(border=True)
+    # second_tile.subheader('Most Likely to Turn the Ball Over')
+    # second_tile.write("Xiao")
+    #
+    # third_tile = second_container.container(border=True)
+    # third_tile.subheader('Most Assist')
+    # third_tile.write("Sam L.")
+    #
+    # fourth_tile = second_container.container(border=True)
+    # fourth_tile.subheader('Most Likely to Miss the Shot')
+    # fourth_tile.write("Wood")
+    #
+    # fifth_tile = second_container.container(border=True)
+    # fifth_tile.subheader('Most Likely to Chuck a Three')
+    # fifth_tile.write("Kevin L.")
+    #
+    # sixth_tile = second_container.container(border=True)
+    # sixth_tile.subheader('Rebound Queen "👩 ')
+    # sixth_tile.write("Charles")
+    #
+    # seventh_tile = second_container.container(border=True)
+    # seventh_tile.subheader('Dirty Thief 🥷')
+    # seventh_tile.write("Lorick")
 
-    third_tile = second_container.container(border=True)
-    third_tile.subheader('Most Assist')
-    third_tile.write("Sam L.")
-
-    fourth_tile = second_container.container(border=True)
-    fourth_tile.subheader('Most Likely to Miss the Shot')
-    fourth_tile.write("Wood")
-
-    fifth_tile = second_container.container(border=True)
-    fifth_tile.subheader('Most Likely to Chuck a Three')
-    fifth_tile.write("Kevin L.")
-
-    sixth_tile = second_container.container(border=True)
-    sixth_tile.subheader('Rebound Queen "👩 ')
-    sixth_tile.write("Charles")
-
-    seventh_tile = second_container.container(border=True)
-    seventh_tile.subheader('Dirty Thief 🥷')
-    seventh_tile.write("Lorick")
-
-    # second_tile.functions.awards_tile("🏆", "LeBron James")
+    functions.awards_tile("MVP", "LeBron James")
+    functions.awards_tile("Point God 🏀🙏 ", "LeBron James")
+    functions.awards_tile("Turnover King", "LeBron James")
+    functions.awards_tile("Rebound Queen 👩", "LeBron James")
+    functions.awards_tile("Dirty Thief 🥷", "LeBron James")
+    functions.awards_tile("Ball Hog 🐷", "LeBron James")
 
 
 st.divider()
