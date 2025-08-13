@@ -39,15 +39,22 @@ player_avg = df.groupby('Player', as_index=False)[df.select_dtypes(include='numb
 player_avg = player_avg.sort_values(by="FPS",ascending=False).reset_index(drop=True)
 player_avg = player_avg.round(2)
 
+games_per_player = df.groupby("Player").size()
+valid_players = games_per_player[games_per_player >= 15].index
+player_avg_filtered = player_avg[player_avg['Player'].isin(valid_players)]
 
 
 col1, col2 = st.columns(2)
 
 with col1:
     main_container = st.container(border=False)
-    main_container.header("👑  Leaderboard")
+    main_container.header("👑  Leaderboard (min. 15 Games)")
 
-    for count, row in enumerate(player_avg.itertuples(index=False), start=1):
+
+    for count, row in enumerate(player_avg_filtered.itertuples(index=False), start=1):
+
+        games_played = df[df["Player"] == row.Player].shape[0]
+
         crown = " 👑" if count == 1 else ""
         tile = main_container.container(border=True)
         tile.markdown(
@@ -59,7 +66,7 @@ with col1:
             """,
             unsafe_allow_html=True
         )
-        tile.caption(f'Games Played: **{df[df["Player"] == row.Player].shape[0]}** ')
+        tile.caption(f'Games Played: **{games_played}** ')
 
 
 with col2:
@@ -67,13 +74,43 @@ with col2:
     second_container.header("🏆  NBA Awards")
 
 
+    functions.awards_tile('MVP 👑',
+                          player_avg_filtered.loc[player_avg_filtered['FPS'].idxmax(), 'Player'],
+                          player_avg_filtered['FPS'].max()
+                          ,'FPS')
 
-    functions.awards_tile("MVP", "LeBron James")
-    functions.awards_tile("Point God 🏀🙏 ", "LeBron James")
-    functions.awards_tile("Turnover King", "LeBron James")
-    functions.awards_tile("Rebound Queen 👩", "LeBron James")
-    functions.awards_tile("Dirty Thief 🥷", "LeBron James")
-    functions.awards_tile("Ball Hog 🐷", "LeBron James")
+
+    functions.awards_tile("Point God 🙌",
+                          player_avg_filtered.loc[player_avg_filtered['AST'].idxmax(), 'Player'],
+                          player_avg_filtered['AST'].max(),
+                          "AST")
+
+    functions.awards_tile("Turnover King 🍩",
+                          player_avg_filtered.loc[player_avg_filtered['TO'].idxmax(), 'Player'],
+                          player_avg_filtered['TO'].max(),
+                          "TO")
+
+
+    functions.awards_tile("Rebound Queen 👩",
+                          player_avg_filtered.loc[player_avg_filtered['REB'].idxmax(), 'Player'],
+                          player_avg_filtered['REB'].max(),
+                          "REB")
+
+    functions.awards_tile("Dirty Thief 🥷",
+                          player_avg_filtered.loc[player_avg_filtered['STL'].idxmax(), 'Player'],
+                          player_avg_filtered['STL'].max(),
+                          "STL")
+
+    functions.awards_tile("The Smooth Operator 🛠️",
+                          player_avg_filtered.loc[player_avg_filtered['TS %'].idxmax(), 'Player'],
+                          (player_avg_filtered['TS %'].max()*100).round(2),
+                          "TS %")
+
+    functions.awards_tile("Three Point Chucker 🚀",
+                          player_avg_filtered.loc[player_avg_filtered['3PA'].idxmax(), 'Player'],
+                          (player_avg_filtered['3PA'].max()),
+                          "3PA")
+
 
 
 st.divider()

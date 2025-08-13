@@ -106,7 +106,7 @@ def leaderboard_button():
         st.switch_page('pages/leaderboard.py')
 
 
-def awards_tile(award,name):
+def awards_tile(award,name,stat_value, stats):
     st.markdown(
         f"""
         <div style="
@@ -126,8 +126,24 @@ def awards_tile(award,name):
             margin-bottom: 1rem;
         ">
             <div style="font-weight: bold;">{award}</div>
-            <div style="font-size: 20px;">{name}</div>
+            <div style = "font-size: 20px;" > {name} </div >
+            <div style="
+                font-family: 'Source Sans', sans-serif;
+                font-size: 0.875rem;
+                font-weight: 400;
+                font-weight: bold;
+                line-height: 1.6;
+                color: rgba(49, 51, 63, 0.6);
+                margin-top: 0px;
+                margin-left: 0px;
+                margin-right: 0px;
+                word-break: break-word;
+                text-align: center;
+            ">
+                {stat_value} {stats}
+            </div>
         </div>
         """,
         unsafe_allow_html=True
     )
+
