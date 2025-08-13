@@ -203,7 +203,7 @@ def career_style():
     /* General font styling */
     body, .vitals-table {
         font-family: "Source Sans", sans-serif;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 1.5;
     }
     </style>
