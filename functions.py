@@ -152,6 +152,7 @@ def awards_tile(award,name,stat_value, stats):
 def career_style():
     return """
     <style>
+    /* Table container */
     .vitals-table {
         width: 100%;
         border-collapse: separate;
@@ -175,6 +176,7 @@ def career_style():
     font-weight: bold;
     }
 
+    /* Bar chart cells full width */
     td.cell-barchart {
         width: 100%;
         min-width: 150px;
@@ -182,56 +184,27 @@ def career_style():
         display: flex;
         align-items: center;
         gap: 4px;
-        white-space: nowrap;
-        min-width: 0;
-    }
-    
-  
-    td.cell-barchart div {
-    flex: 1 1 auto;       
-    min-width: 20px;
-    height: 16px;
-    border-radius: 4px;      
-    }
-    
-    td.cell-barchart span {
-    white-space: nowrap;  
-    font-size: 0.8em;      
     }
 
+    /* Bar inside cell */
     .barchart-bar {
-        height: 0.75rem;           
-        border-radius: 4px;         
-        background-color: #a3a3a3;  
-        border: 1px solid rgba(0, 0, 0, 0.15);
+        height: 0.75rem;             /* small bar height */
+        border-radius: 4px;          /* rounded corners */
+        background-color: #a3a3a3;   /* default gray background */
+        border: 1px solid rgba(0, 0, 0, 0.15); /* subtle border */
         box-sizing: border-box;
     }
 
+    /* Rank colors */
+    .barchart-rank-1 { background-color: #2ca02c; } /* green */
+    .barchart-rank-2 { background-color: #ff7f0f; } /* orange */
+    .barchart-rank-3 { background-color: #1f77b4; } /* blue */
 
-
-
-
+    /* General font styling */
     body, .vitals-table {
         font-family: "Source Sans", sans-serif;
-        font-size: 16px;
+        font-size: 12px;
         line-height: 1.5;
     }
-    
-
-    @media (max-width: 600px) {
-        td.cell-barchart div {
-            max-width: 70%;     /* ensure bar doesn't overflow */
-        }
-        td.cell-barchart span {
-            font-size: 0.7em;   /* smaller percentage text */
-        }
-    }
-    
     </style>
     """
-
-
-
-    # .barchart-rank-1 { background-color: #2ca02c; } /* green */
-    # .barchart-rank-2 { background-color: #ff7f0f; } /* orange */
-    # .barchart-rank-3 { background-color: #1f77b4; } /* blue */
