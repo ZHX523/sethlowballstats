@@ -183,17 +183,20 @@ def career_style():
         align-items: center;
         gap: 4px;
         white-space: nowrap;
+        min-width: 0;
     }
     
   
     td.cell-barchart div {
-    flex-shrink: 1;        
-    min-width: 20px;      
+    flex: 1 1 auto;       
+    min-width: 20px;
+    height: 16px;
+    border-radius: 4px;      
     }
     
     td.cell-barchart span {
     white-space: nowrap;  
-    font-size: 0.9em;      
+    font-size: 0.8em;      
     }
 
     .barchart-bar {
@@ -220,7 +223,7 @@ def career_style():
             max-width: 70%;     /* ensure bar doesn't overflow */
         }
         td.cell-barchart span {
-            font-size: 0.8em;   /* smaller percentage text */
+            font-size: 0.7em;   /* smaller percentage text */
         }
     }
     
