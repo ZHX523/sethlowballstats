@@ -152,7 +152,6 @@ def awards_tile(award,name,stat_value, stats):
 def career_style():
     return """
     <style>
-    /* Table container */
     .vitals-table {
         width: 100%;
         border-collapse: separate;
@@ -161,7 +160,6 @@ def career_style():
         background-color: #fff;
     }
 
-    /* Table headers and cells */
     .vitals-table th, .vitals-table td {
         padding: 4px 10px;
         text-align: left;
@@ -177,7 +175,6 @@ def career_style():
     font-weight: bold;
     }
 
-    /* Bar chart cells full width */
     td.cell-barchart {
         width: 100%;
         min-width: 150px;
@@ -187,12 +184,11 @@ def career_style():
         gap: 4px;
     }
 
-    /* Bar inside cell */
     .barchart-bar {
-        height: 0.75rem;             /* small bar height */
-        border-radius: 4px;          /* rounded corners */
-        background-color: #a3a3a3;   /* default gray background */
-        border: 1px solid rgba(0, 0, 0, 0.15); /* subtle border */
+        height: 0.75rem;           
+        border-radius: 4px;         
+        background-color: #a3a3a3;  
+        border: 1px solid rgba(0, 0, 0, 0.15);
         box-sizing: border-box;
     }
 
@@ -201,11 +197,23 @@ def career_style():
     .barchart-rank-2 { background-color: #ff7f0f; } /* orange */
     .barchart-rank-3 { background-color: #1f77b4; } /* blue */
 
-    /* General font styling */
+
     body, .vitals-table {
         font-family: "Source Sans", sans-serif;
         font-size: 16px;
         line-height: 1.5;
     }
+    
+
+    @media (max-width: 600px) {
+        .vitals-table th, .vitals-table td {
+            font-size: 12px;  /* smaller text */
+            padding: 2px 5px; /* tighter padding */
+        }
+        td.cell-barchart {
+            min-width: 100px; /* shrink bar cells */
+        }
+    }
+    
     </style>
     """
