@@ -182,6 +182,18 @@ def career_style():
         display: flex;
         align-items: center;
         gap: 4px;
+        white-space: nowrap;
+    }
+    
+  
+    td.cell-barchart div {
+    flex-shrink: 1;        
+    min-width: 20px;      
+    }
+    
+    td.cell-barchart span {
+    white-space: nowrap;  
+    font-size: 0.9em;      
     }
 
     .barchart-bar {
@@ -192,10 +204,8 @@ def career_style():
         box-sizing: border-box;
     }
 
-    /* Rank colors */
-    .barchart-rank-1 { background-color: #2ca02c; } /* green */
-    .barchart-rank-2 { background-color: #ff7f0f; } /* orange */
-    .barchart-rank-3 { background-color: #1f77b4; } /* blue */
+
+
 
 
     body, .vitals-table {
@@ -206,14 +216,19 @@ def career_style():
     
 
     @media (max-width: 600px) {
-        .vitals-table th, .vitals-table td {
-            font-size: 12px;  /* smaller text */
-            padding: 2px 5px; /* tighter padding */
+        td.cell-barchart div {
+            max-width: 70%;     /* ensure bar doesn't overflow */
         }
-        td.cell-barchart {
-            min-width: 100px; /* shrink bar cells */
+        td.cell-barchart span {
+            font-size: 0.8em;   /* smaller percentage text */
         }
     }
     
     </style>
     """
+
+
+
+    # .barchart-rank-1 { background-color: #2ca02c; } /* green */
+    # .barchart-rank-2 { background-color: #ff7f0f; } /* orange */
+    # .barchart-rank-3 { background-color: #1f77b4; } /* blue */
