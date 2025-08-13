@@ -123,6 +123,7 @@ def awards_tile(award,name):
             font-size: 20px;
             justify-content: center;
             align-items: center;
+            margin-bottom: 1rem;
         ">
             <div style="font-weight: bold;">{award}</div>
             <div style="font-size: 20px;">{name}</div>
