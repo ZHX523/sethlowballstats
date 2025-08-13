@@ -151,7 +151,7 @@ with col1:
                     <th>FG %</th>
                     <td class="cell-num">{(player_df['FG %'].mean() * 100).round(1)} %</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['TO'].mean(),lb.player_avg['TO'].max())}</div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['FG %'].mean(),lb.player_avg['FG %'].max())}</div>
                         <span>{(player_df['FG %'].mean() / lb.player_avg['FG %'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{(lb.player_avg['FG %'].min() * 100).round(2)} %</td>
