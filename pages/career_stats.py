@@ -68,6 +68,8 @@ st.markdown(f":green-badge[:material/star: Avg Fantasy Value: **{fps}**]"
 
 col1, col2 = st.columns(2)
 
+
+
 with col1:
     st.markdown(f"""
     {functions.career_style()}
@@ -88,7 +90,7 @@ with col1:
                     <th>PTS</th>
                     <td class="cell-num">{player_df['PTS'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="width:{(player_df['PTS'].mean() / lb.player_avg['PTS'].max() * 100):.2f}%; background-color:#4CAF50; height:16px;"></div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['PTS'].mean(),lb.player_avg['PTS'].max())}</div>
                         <span>{(player_df['PTS'].mean() / lb.player_avg['PTS'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['PTS'].min()}</td>
@@ -98,7 +100,7 @@ with col1:
                     <th>REB</th>
                     <td class="cell-num">{player_df['REB'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="width:{(player_df['REB'].mean() / lb.player_avg['REB'].max() * 100):.2f}%; background-color:#2196F3; height:16px;"></div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['REB'].mean(),lb.player_avg['REB'].max())}</div>
                         <span>{(player_df['REB'].mean() / lb.player_avg['REB'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['REB'].min()}</td>
@@ -108,7 +110,7 @@ with col1:
                     <th>AST</th>
                     <td class="cell-num">{player_df['AST'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="width:{(player_df['AST'].mean() / lb.player_avg['AST'].max() * 100):.1f}%; background-color:#FFC107; height:16px;"></div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['AST'].mean(),lb.player_avg['AST'].max())}</div>
                         <span>{(player_df['AST'].mean() / lb.player_avg['AST'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['AST'].min()}</td>
@@ -118,7 +120,7 @@ with col1:
                     <th>STL</th>
                     <td class="cell-num">{player_df['STL'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="width:{(player_df['STL'].mean() / lb.player_avg['STL'].max() * 100):.1f}%; background-color:#FF5722; height:16px;"></div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['STL'].mean(),lb.player_avg['STL'].max())}</div>
                         <span>{(player_df['STL'].mean() / lb.player_avg['STL'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['STL'].min()}</td>
@@ -128,7 +130,7 @@ with col1:
                     <th>BLK</th>
                     <td class="cell-num">{player_df['BLK'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="width:{(player_df['BLK'].mean() / lb.player_avg['BLK'].max() * 100):.1f}%; background-color:#9C27B0; height:16px;"></div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['BLK'].mean(),lb.player_avg['BLK'].max())}</div>
                         <span>{(player_df['BLK'].mean() / lb.player_avg['BLK'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['BLK'].min()}</td>
@@ -138,7 +140,7 @@ with col1:
                     <th>TO</th>
                     <td class="cell-num">{player_df['TO'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="width:{(player_df['TO'].mean() / lb.player_avg['TO'].max() * 100):.1f}%; background-color:#00BCD4; height:16px;"></div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['TO'].mean(),lb.player_avg['TO'].max())}</div>
                         <span>{(player_df['TO'].mean() / lb.player_avg['TO'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['TO'].min()}</td>
@@ -148,7 +150,7 @@ with col1:
                     <th>FG %</th>
                     <td class="cell-num">{(player_df['FG %'].mean() * 100).round(1)} %</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="width:{(player_df['FG %'].mean() / lb.player_avg['FG %'].max() * 100):.1f}%; background-color:#FF9800; height:16px;"></div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['TO'].mean(),lb.player_avg['TO'].max())}</div>
                         <span>{(player_df['FG %'].mean() / lb.player_avg['FG %'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{(lb.player_avg['FG %'].min() * 100).round(2)} %</td>
@@ -158,7 +160,7 @@ with col1:
                     <th>3P %</th>
                     <td class="cell-num">{(player_df['3P %'].mean() * 100).round(1)} %</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="width:{(player_df['3P %'].mean() / lb.player_avg['3P %'].max() * 100):.1f}%; background-color:#8BC34A; height:16px;"></div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['3P %'].mean(),lb.player_avg['3P %'].max())}</div>
                         <span>{(player_df['3P %'].mean() / lb.player_avg['3P %'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{(lb.player_avg['3P %'].min() * 100).round(2)} %</td>
@@ -168,7 +170,7 @@ with col1:
                     <th>TS %</th>
                     <td class="cell-num">{(player_df['TS %'].mean() * 100).round(1)} %</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
-                        <div style="width:{(player_df['TS %'].mean() / lb.player_avg['TS %'].max() * 100):.1f}%; background-color:#E91E63; height:16px;"></div>
+                        <div style="display:flex; width:100%;">{functions.decile_bar(player_df['TS %'].mean(),lb.player_avg['TS %'].max())}</div>
                         <span>{(player_df['TS %'].mean() / lb.player_avg['TS %'].max() * 100):.1f}%</span>
                     </td>
                     <td class="cell-num">{(lb.player_avg['TS %'].min() * 100).round(2)} %</td>

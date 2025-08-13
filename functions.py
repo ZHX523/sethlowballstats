@@ -208,3 +208,19 @@ def career_style():
     }
     </style>
     """
+
+def decile_bar(player,max_value):
+    pct = player / max_value * 100
+
+    segments_html = ''
+
+    for i in range(10):
+        if (i + 1) * 10 <= pct:
+            segments_html += f'<div style="width:10%; background-color:#4CAF50; height:16px; border-right:1px solid #fff;"></div>'
+        elif i * 10 < pct < (i + 1) * 10:
+            segments_html += f'<div style="width:{pct - i * 10}%; background-color:#e0e0e0; height:16px;"></div>'
+            segments_html += f'<div style="width:{(i + 1) * 10 - pct}%; background-color:#e0e0e0; height:16px; border-right:1px solid #fff;"></div>'
+        else:
+            segments_html += f'<div style="width:10%; background-color:#e0e0e0; height:16px; border-right:1px solid #fff;"></div>'
+
+    return f'<div style="display:flex; width:100%;">{segments_html}</div>'
