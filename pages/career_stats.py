@@ -4,6 +4,7 @@ import time
 import functions
 import main
 import pages.leaderboard as lb
+from functions import decile_bar
 
 
 
