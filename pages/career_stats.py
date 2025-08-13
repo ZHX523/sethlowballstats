@@ -4,7 +4,7 @@ import time
 import functions
 import main
 import pages.leaderboard as lb
-import matplotlib.pyplot as plt
+
 
 
 st.set_page_config(layout="wide")
