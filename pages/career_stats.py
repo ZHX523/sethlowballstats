@@ -225,7 +225,6 @@ with col2:
     fig.update_layout(
         plot_bgcolor='lightgrey',
         polar=dict(
-                bgcolor='lightgrey',
                 radialaxis=dict(
                     visible=True,
                     range=[0, 10]
