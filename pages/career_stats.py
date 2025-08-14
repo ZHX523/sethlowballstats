@@ -223,7 +223,6 @@ with col2:
 
     # Update layout
     fig.update_layout(
-        paper_bgcolor='lightgrey',
         plot_bgcolor='lightgrey',
         polar=dict(
                 bgcolor='lightgrey',
