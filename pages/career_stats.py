@@ -69,6 +69,13 @@ st.markdown(f":green-badge[:material/star: Avg Fantasy Value: **{fps}**]"
 
 col1, col2 = st.columns(2)
 
+def ordinal(n):
+    if 10 <= n % 100 <= 20:
+        suffix = 'th'
+    else:
+        suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')
+    return f"{n}{suffix}"
+
 
 
 with col1:
@@ -92,7 +99,7 @@ with col1:
                     <td class="cell-num">{player_df['PTS'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['PTS'].mean(),lb.player_avg['PTS'].max())}</div>
-                        <span>{((player_df['PTS'].mean() / lb.player_avg['PTS'].max())*10).round().astype(int)}</span>
+                        <span>{ordinal(round((player_df['PTS'].mean() / lb.player_avg['PTS'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['PTS'].min()}</td>
                     <td class="cell-num">{lb.player_avg['PTS'].max()}</td>
