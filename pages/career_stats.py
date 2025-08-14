@@ -81,7 +81,7 @@ with col1:
                 <tr>
                     <th>Stats</th>
                     <th>Avg</th>
-                    <th>Avg %</th>
+                    <th>Percentile</th>
                     <th>Min</th>
                     <th>Max</th>
                 </tr> 
