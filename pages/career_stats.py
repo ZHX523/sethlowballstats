@@ -190,8 +190,8 @@ with col1:
     </div>
     """, unsafe_allow_html=True)
 
-with col2:
-    # st.write('PLACEHOLDER FOR SOMETHING')
+# with col2:
+#     st.write('PLACEHOLDER FOR SOMETHING')
 
 # col1, col2, col3 = st.columns(3)
 #
