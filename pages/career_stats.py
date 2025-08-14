@@ -194,6 +194,7 @@ with col1:
 
 with col2:
     stat_profile = st.container()
+
     stat_profile.header(f'Player Profile')
 
     categories = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']
@@ -223,17 +224,16 @@ with col2:
 
     # Update layout
     fig.update_layout(
-        plot_bgcolor='lightgrey',
         polar=dict(
-                radialaxis=dict(
-                    visible=True,
-                    range=[0, 10]
-                )
+            radialaxis=dict(
+                visible=True,
+                range=[0, 10]
             )
         )
+    )
 
     fig.update_layout(
-        height=350,
+        height=300,
         margin=dict(t=20, b=0, l=0, r=0)
     )
 
