@@ -234,7 +234,7 @@ with col2:
             ),
             gridshape='linear'
         ),
-        height=360,
+        height=340,
         margin=dict(t=20, b=0, l=5, r=5),
         paper_bgcolor='white'
     )
