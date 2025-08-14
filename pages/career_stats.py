@@ -92,7 +92,7 @@ with col1:
                     <td class="cell-num">{player_df['PTS'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['PTS'].mean(),lb.player_avg['PTS'].max())}</div>
-                        <span>{(player_df['PTS'].mean() / lb.player_avg['PTS'].max() * 100):.1f}%</span>
+                        <span>{(player_df['PTS'].mean() / lb.player_avg['PTS'].max() * 10):.1f}%</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['PTS'].min()}</td>
                     <td class="cell-num">{lb.player_avg['PTS'].max()}</td>
