@@ -129,7 +129,7 @@ with col1:
                     <td class="cell-num">{player_df['STL'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['STL'].mean(),lb.player_avg['STL'].max())}</div>
-                        <span>{ordinal(round((player_df['STL'].mean() / lb.player_avg['STL'].max()) * 10))}</span>
+                        <span>{ordinal(round((player_df['STL'].mean() / lb.player_avg['STL'].max()) * 100))}</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['STL'].min()}</td>
                     <td class="cell-num">{lb.player_avg['STL'].max()}</td>
