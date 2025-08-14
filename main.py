@@ -55,7 +55,7 @@ with st.sidebar:
 row1 = st.columns(1)
 
 for col in row1:
-    tile = col.container(border=True)
+    tile = col.container()
     tile.header(f'{selected_game} on {selected_date}')
     try:
         st.video(game_id.iloc[0]['Video URL'])
@@ -64,7 +64,7 @@ for col in row1:
 
 
 for team in teams:
-    with st.container(border=True):
+    with st.container():
 
         table_html, team_score = functions.build_table_html(df,team,selected_date,selected_game)
 

@@ -6,7 +6,7 @@ import main
 import math
 import pages.leaderboard as lb
 from functions import decile_bar
-
+import plotly.graph_objects as go
 
 
 st.set_page_config(layout="wide")
@@ -59,13 +59,7 @@ st.divider()
 player_df = df[df['Player'] == selected_player]
 fps = player_df['FPS'].mean().round(2)
 
-player_profile = st.container()
 
-player_profile.header(f'{selected_player}')
-st.markdown(f":green-badge[:material/star: Avg Fantasy Value: **{fps}**]"
-            f":violet-badge[:material/sports_basketball: Games Played: **{len(player_df)}**]"
-            f":blue-badge[:material/moving: Number of Wins **{player_df['W/L'].sum()}**]"
-            f":red-badge[:material/trending_down: Number of Losses **{len(player_df)-player_df['W/L'].sum()}**]")
 
 
 col1, col2 = st.columns(2)
@@ -80,6 +74,14 @@ def ordinal(n):
 
 
 with col1:
+    player_profile = st.container()
+
+    player_profile.header(f'{selected_player}')
+    st.markdown(f":green-badge[:material/star: Avg Fantasy Value: **{fps}**]"
+                f":violet-badge[:material/sports_basketball: Games Played: **{len(player_df)}**]"
+                f":blue-badge[:material/moving: Number of Wins **{player_df['W/L'].sum()}**]"
+                f":red-badge[:material/trending_down: Number of Losses **{len(player_df) - player_df['W/L'].sum()}**]")
+
     st.markdown(f"""
     {functions.career_style()}
 
@@ -190,8 +192,56 @@ with col1:
     </div>
     """, unsafe_allow_html=True)
 
-# with col2:
-#     st.write('PLACEHOLDER FOR SOMETHING')
+with col2:
+    stat_profile = st.container()
+    stat_profile.header(f'Player Profile')
+
+    categories = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']
+    values = [math.floor((player_df['PTS'].mean() / lb.player_avg['PTS'].max()) * 10),
+              math.floor((player_df['REB'].mean() / lb.player_avg['REB'].max()) * 10),
+              math.floor((player_df['AST'].mean() / lb.player_avg['AST'].max()) * 10),
+              math.floor((player_df['STL'].mean() / lb.player_avg['STL'].max()) * 10),
+              math.floor((player_df['BLK'].mean() / lb.player_avg['BLK'].max()) * 10),
+              math.floor((player_df['TO'].mean() / lb.player_avg['TO'].max()) * 10)]
+
+    values += values[:1]
+    categories += categories[:1]
+
+    # Create radar chart
+    fig = go.Figure(
+        data=[
+            go.Scatterpolar(
+                r=values,
+                theta=categories,
+                fill='toself',
+                fillcolor='rgba(144, 238, 144, 0.4)',
+                line=dict(color='rgba(60, 179, 113, 1)',
+                width=2)
+            )
+        ]
+    )
+
+    # Update layout
+    fig.update_layout(
+        polar=dict(
+            radialaxis=dict(
+                visible=True,
+                range=[0, 10]
+            )
+        )
+    )
+
+    fig.update_layout(
+        height=350,
+        margin=dict(t=20, b=0, l=0, r=0)
+    )
+
+    st.plotly_chart(fig)
+
+
+
+
+
 
 # col1, col2, col3 = st.columns(3)
 #
