@@ -234,12 +234,12 @@ with col2:
             ),
             gridshape='linear'
         ),
-        height=370,
-        margin=dict(t=20, b=0, l=10, r=10),
+        height=360,
+        margin=dict(t=20, b=0, l=5, r=5),
         paper_bgcolor='white'
     )
 
-    st.plotly_chart(fig)
+    st.plotly_chart(fig,use_container_width=True,config={'staticPlot': True})
 
 
 
