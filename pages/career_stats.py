@@ -3,6 +3,7 @@ import pandas as pd
 import time
 import functions
 import main
+import math
 import pages.leaderboard as lb
 from functions import decile_bar
 
@@ -99,7 +100,7 @@ with col1:
                     <td class="cell-num">{player_df['PTS'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['PTS'].mean(),lb.player_avg['PTS'].max())}</div>
-                        <span>{ordinal(round((player_df['PTS'].mean() / lb.player_avg['PTS'].max()) * 10))}</span>
+                        <span>{ordinal(math.floor((player_df['PTS'].mean() / lb.player_avg['PTS'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['PTS'].min()}</td>
                     <td class="cell-num">{lb.player_avg['PTS'].max()}</td>
@@ -109,7 +110,7 @@ with col1:
                     <td class="cell-num">{player_df['REB'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['REB'].mean(),lb.player_avg['REB'].max())}</div>
-                        <span>{ordinal(round((player_df['REB'].mean() / lb.player_avg['REB'].max()) * 10))}</span>
+                        <span>{ordinal(math.floor((player_df['REB'].mean() / lb.player_avg['REB'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['REB'].min()}</td>
                     <td class="cell-num">{lb.player_avg['REB'].max()}</td>
@@ -119,7 +120,7 @@ with col1:
                     <td class="cell-num">{player_df['AST'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['AST'].mean(),lb.player_avg['AST'].max())}</div>
-                        <span>{ordinal(round((player_df['AST'].mean() / lb.player_avg['AST'].max()) * 10))}</span>
+                        <span>{ordinal(math.floor((player_df['AST'].mean() / lb.player_avg['AST'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['AST'].min()}</td>
                     <td class="cell-num">{lb.player_avg['AST'].max()}</td>
@@ -129,7 +130,7 @@ with col1:
                     <td class="cell-num">{player_df['STL'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['STL'].mean(),lb.player_avg['STL'].max())}</div>
-                        <span>{ordinal(round((player_df['STL'].mean() / lb.player_avg['STL'].max()) * 10))}</span>
+                        <span>{ordinal(math.floor((player_df['STL'].mean() / lb.player_avg['STL'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['STL'].min()}</td>
                     <td class="cell-num">{lb.player_avg['STL'].max()}</td>
@@ -139,7 +140,7 @@ with col1:
                     <td class="cell-num">{player_df['BLK'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['BLK'].mean(),lb.player_avg['BLK'].max())}</div>
-                        <span>{ordinal(round((player_df['BLK'].mean() / lb.player_avg['BLK'].max()) * 10))}</span>
+                        <span>{ordinal(math.floor((player_df['BLK'].mean() / lb.player_avg['BLK'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['BLK'].min()}</td>
                     <td class="cell-num">{lb.player_avg['BLK'].max()}</td>
@@ -149,7 +150,7 @@ with col1:
                     <td class="cell-num">{player_df['TO'].mean().round(2)}</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['TO'].mean(),lb.player_avg['TO'].max())}</div>
-                        <span>{ordinal(round((player_df['TO'].mean() / lb.player_avg['TO'].max()) * 10))}</span>
+                        <span>{ordinal(math.floor((player_df['TO'].mean() / lb.player_avg['TO'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{lb.player_avg['TO'].min()}</td>
                     <td class="cell-num">{lb.player_avg['TO'].max()}</td>
@@ -159,7 +160,7 @@ with col1:
                     <td class="cell-num">{(player_df['FG %'].mean() * 100).round(1)} %</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['FG %'].mean(),lb.player_avg['FG %'].max())}</div>
-                        <span>{ordinal(round((player_df['FG %'].mean() / lb.player_avg['FG %'].max()) * 10))}</span>
+                        <span>{ordinal(math.floor((player_df['FG %'].mean() / lb.player_avg['FG %'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{(lb.player_avg['FG %'].min() * 100).round(2)} %</td>
                     <td class="cell-num">{(lb.player_avg['FG %'].max() * 100).round(2)} %</td>
@@ -169,7 +170,7 @@ with col1:
                     <td class="cell-num">{(player_df['3P %'].mean() * 100).round(1)} %</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['3P %'].mean(),lb.player_avg['3P %'].max())}</div>
-                        <span>{ordinal(round((player_df['3P %'].mean() / lb.player_avg['3P %'].max()) * 10))}</span>
+                        <span>{ordinal(math.floor((player_df['3P %'].mean() / lb.player_avg['3P %'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{(lb.player_avg['3P %'].min() * 100).round(2)} %</td>
                     <td class="cell-num">{(lb.player_avg['3P %'].max() * 100).round(2)} %</td>
@@ -179,7 +180,7 @@ with col1:
                     <td class="cell-num">{(player_df['TS %'].mean() * 100).round(1)} %</td>
                     <td class="cell-barchart" style="display: flex; align-items: center; gap: 4px;">
                         <div style="display:flex; width:100%;">{functions.decile_bar(player_df['TS %'].mean(),lb.player_avg['TS %'].max())}</div>
-                        <span>{ordinal(round((player_df['TS %'].mean() / lb.player_avg['TS %'].max()) * 10))}</span>
+                        <span>{ordinal(math.floor((player_df['TS %'].mean() / lb.player_avg['TS %'].max()) * 10))}</span>
                     </td>
                     <td class="cell-num">{(lb.player_avg['TS %'].min() * 100).round(2)} %</td>
                     <td class="cell-num">{(lb.player_avg['TS %'].max() * 100).round(2)} %</td>
