@@ -216,8 +216,7 @@ with col2:
                 theta=categories,
                 fill='toself',
                 fillcolor='rgba(144, 238, 144, 0.4)',
-                line=dict(color='rgba(60, 179, 113, 1)',
-                width=2)
+                line=dict(color='rgba(60, 179, 113, 1)', width=2)
             )
         ]
     )
@@ -225,16 +224,19 @@ with col2:
     # Update layout
     fig.update_layout(
         polar=dict(
+            bgcolor='#ebebeb',
             radialaxis=dict(
                 visible=True,
                 range=[0, 10]
-            )
-        )
-    )
-
-    fig.update_layout(
-        height=290,
-        margin=dict(t=20, b=0, l=0, r=0)
+            ),
+            angularaxis=dict(
+                visible=True
+            ),
+            gridshape='linear'
+        ),
+        height=370,
+        margin=dict(t=20, b=0, l=10, r=10),
+        paper_bgcolor='white'
     )
 
     st.plotly_chart(fig)
