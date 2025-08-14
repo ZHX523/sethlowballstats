@@ -195,7 +195,7 @@ with col1:
 with col2:
     stat_profile = st.container()
 
-    stat_profile.header(f'Player Profile')
+    stat_profile.header(f'{selected_player} Profile')
 
     categories = ['PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']
     values = [math.floor((player_df['PTS'].mean() / lb.player_avg['PTS'].max()) * 10),
