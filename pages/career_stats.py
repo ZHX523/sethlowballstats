@@ -223,13 +223,16 @@ with col2:
 
     # Update layout
     fig.update_layout(
+        paper_bgcolor='lightgrey',
+        plot_bgcolor='lightgrey',
         polar=dict(
-            radialaxis=dict(
-                visible=True,
-                range=[0, 10]
+                bgcolor='lightgrey',
+                radialaxis=dict(
+                    visible=True,
+                    range=[0, 10]
+                )
             )
         )
-    )
 
     fig.update_layout(
         height=350,
