@@ -111,6 +111,10 @@ with col2:
                           (player_avg_filtered['3PA'].max()),
                           "3PA")
 
+    functions.awards_tile("Block Party 🎉",
+                          player_avg_filtered.loc[player_avg_filtered['BLK'].idxmax(), 'Player'],
+                          (player_avg_filtered['BLK'].max()),
+                          "BLK")
 
 
 st.divider()

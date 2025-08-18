@@ -120,13 +120,13 @@ def awards_tile(award,name,stat_value, stats):
             border: 1px solid rgba(49, 51, 63, 0.2);
             border-radius: 0.5rem;
             padding: calc(-1px + 1rem);
-            font-size: 20px;
+            font-size: 18px;
             justify-content: center;
             align-items: center;
             margin-bottom: 1rem;
         ">
             <div style="font-weight: bold;">{award}</div>
-            <div style = "font-size: 20px;" > {name} </div >
+            <div style = "font-size: 18px;" > {name} </div >
             <div style="
                 font-family: 'Source Sans', sans-serif;
                 font-size: 0.875rem;
