@@ -85,7 +85,7 @@ with col2:
     functions.awards_tile("Most Winning Player Award 🥇",
                           player_avg_filtered.loc[player_avg_filtered['W/L'].idxmax(), 'Player'],
                           (player_avg_filtered['W/L'].max()*100).round(2),
-                          "Win %")
+                          "🥇 Win %")
 
     functions.awards_tile("Point God 🙌 ",
                           player_avg_filtered.loc[player_avg_filtered['AST'].idxmax(), 'Player'],
@@ -98,7 +98,7 @@ with col2:
                           player_avg_filtered['REB'].max(),
                           "🗑️ REB")
 
-    functions.awards_tile("Hide Your Kids, Award 👶",
+    functions.awards_tile("Hide Your Kids Award 👶",
                           player_avg_filtered.loc[player_avg_filtered['STL'].idxmax(), 'Player'],
                           player_avg_filtered['STL'].max(),
                           "👶 Stolen")
@@ -106,7 +106,7 @@ with col2:
     functions.awards_tile("Turnover King 🍩",
                           player_avg_filtered.loc[player_avg_filtered['TO'].idxmax(), 'Player'],
                           player_avg_filtered['TO'].max(),
-                          "TO")
+                          "🍩 TO")
 
     functions.awards_tile("The Smooth Operator 🛠️",
                           player_avg_filtered.loc[player_avg_filtered['TS %'].idxmax(), 'Player'],
@@ -121,7 +121,7 @@ with col2:
     functions.awards_tile("Block Party 🛑",
                           player_avg_filtered.loc[player_avg_filtered['BLK'].idxmax(), 'Player'],
                           (player_avg_filtered['BLK'].max()),
-                          "BLK")
+                          "SHOTS 🛑 BLK")
 
     functions.awards_tile("Clutch These 🥜 Award ",
                           player_avg_filtered.loc[player_avg_filtered['GW'].idxmax(), 'Player'],
