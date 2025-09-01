@@ -105,6 +105,10 @@ def leaderboard_button():
     if st.button("Leaderboard", key='leaderboard-nav', use_container_width=True):
         st.switch_page('pages/leaderboard.py')
 
+def games_played_together():
+    if st.button("Games Played Together", key='games-nav', use_container_width=True):
+        st.switch_page('pages/data.py')
+
 
 def awards_tile(award,name,stat_value, stats):
     st.markdown(

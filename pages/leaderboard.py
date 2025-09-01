@@ -25,6 +25,7 @@ with st.sidebar:
     functions.home_button()
     functions.career_button()
     functions.leaderboard_button()
+    functions.games_played_together()
     functions.refresh_buttion()
 
     df, teams = functions.load_data()
@@ -80,43 +81,43 @@ with col2:
                           ,'FPS')
 
 
-    functions.awards_tile("Point God 🙌",
+    functions.awards_tile("Point God",
                           player_avg_filtered.loc[player_avg_filtered['AST'].idxmax(), 'Player'],
                           player_avg_filtered['AST'].max(),
                           "AST")
 
-    functions.awards_tile("Turnover King 🍩",
+    functions.awards_tile("Turnover King",
                           player_avg_filtered.loc[player_avg_filtered['TO'].idxmax(), 'Player'],
                           player_avg_filtered['TO'].max(),
                           "TO")
 
 
-    functions.awards_tile("Rebound Queen 👩",
+    functions.awards_tile("Rebound Queen",
                           player_avg_filtered.loc[player_avg_filtered['REB'].idxmax(), 'Player'],
                           player_avg_filtered['REB'].max(),
                           "REB")
 
-    functions.awards_tile("Dirty Thief 🥷",
+    functions.awards_tile("Pick Pocket",
                           player_avg_filtered.loc[player_avg_filtered['STL'].idxmax(), 'Player'],
                           player_avg_filtered['STL'].max(),
                           "STL")
 
-    functions.awards_tile("The Smooth Operator 🛠️",
+    functions.awards_tile("The Smooth Operator",
                           player_avg_filtered.loc[player_avg_filtered['TS %'].idxmax(), 'Player'],
                           (player_avg_filtered['TS %'].max()*100).round(2),
                           "TS %")
 
-    functions.awards_tile("Three Point Chucker 🚀",
-                          player_avg_filtered.loc[player_avg_filtered['3PA'].idxmax(), 'Player'],
-                          (player_avg_filtered['3PA'].max()),
-                          "3PA")
+    functions.awards_tile("Three Point Sniper",
+                          player_avg_filtered.loc[player_avg_filtered['3PM'].idxmax(), 'Player'],
+                          (player_avg_filtered['3PM'].max()),
+                          "3PM")
 
-    functions.awards_tile("Block Party 🎉",
+    functions.awards_tile("Best Three Point Shooter",
+                          player_avg_filtered.loc[player_avg_filtered['3P %'].idxmax(), 'Player'],
+                          (player_avg_filtered['3P %'].max()*100).round(2),
+                          "3P %")
+
+    functions.awards_tile("Block Party",
                           player_avg_filtered.loc[player_avg_filtered['BLK'].idxmax(), 'Player'],
                           (player_avg_filtered['BLK'].max()),
                           "BLK")
-
-
-st.divider()
-st.subheader("Ranked Data")
-st.write(player_avg)

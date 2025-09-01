@@ -30,8 +30,9 @@ with st.sidebar:
 
     functions.leaderboard_button()
 
-    functions.refresh_buttion()
+    functions.games_played_together()
 
+    functions.refresh_buttion()
 
     df, teams = functions.load_data()
 

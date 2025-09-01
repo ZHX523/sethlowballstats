@@ -30,6 +30,7 @@ with st.sidebar:
     functions.home_button()
     functions.career_button()
     functions.leaderboard_button()
+    functions.games_played_together()
     functions.refresh_buttion()
 
     df, teams = functions.load_data()
@@ -244,49 +245,21 @@ with col2:
 
 
 
+functions.load_data()
+players = df['Player'].unique().tolist()
+
+player_avg = df.groupby('Player', as_index=False)[df.select_dtypes(include='number').columns].mean()
+
+player_avg = player_avg.sort_values(by="FPS",ascending=False).reset_index(drop=True)
+player_avg = player_avg.round(2)
+
+games_per_player = df.groupby("Player").size()
+valid_players = games_per_player[games_per_player >= 15].index
+player_avg_filtered = player_avg[player_avg['Player'].isin(valid_players)]
 
 
-# col1, col2, col3 = st.columns(3)
-#
-# col_data = [
-#     (col1, ["PTS", "REB", "AST"]),
-#     (col2, ["STL", "BLK", "TO"]),
-#     (col3, ["FG %", "3P %", "TS %"])
-# ]
-#
-# for col, stats in col_data:
-#     with col:
-#         for stat in stats:
-#             stat_container = st.container(border=True,height=90)
-#
-#             value = player_df[stat].mean().round(2)
-#
-#             percent_stats =["FG %", "TS %", "3P %"]
-#
-#             if stat in percent_stats:
-#                 display_value = f"{value:.1%}"
-#             else:
-#                 display_value = value
-#
-#             stat_container.markdown(
-#                 f"""
-#                 <div style="text-align: center; font-weight: bold; font-size: 20px;">
-#                     {display_value}
-#                 </div>
-#                 """,
-#                 unsafe_allow_html=True
-#             )
-#
-#             stat_container.caption(
-#                 f"""
-#                 <p style="text-align: center; font-size: 16px; margin: 0;">
-#                     {stat}
-#                 </p>
-#                 """,
-#                 unsafe_allow_html=True
-#             )
-#
-
-
+st.divider()
+st.subheader("Ranked Data")
+st.write(player_avg)
 
 
