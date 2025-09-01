@@ -93,7 +93,7 @@ with col2:
                           "AST")
 
 
-    functions.awards_tile("Vaccuum Cleaner",
+    functions.awards_tile("Vacuum Cleaner Award",
                           player_avg_filtered.loc[player_avg_filtered['REB'].idxmax(), 'Player'],
                           player_avg_filtered['REB'].max(),
                           "REB")
