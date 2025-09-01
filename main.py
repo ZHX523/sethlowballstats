@@ -30,7 +30,7 @@ with st.sidebar:
 
     functions.leaderboard_button()
 
-    # functions.games_played_together()
+    functions.games_played_together()
 
     functions.refresh_buttion()
 
