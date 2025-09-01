@@ -14,6 +14,7 @@ def load_data():
     path = csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
 
     df = pd.read_csv(csv_url)
+    df = df.sort_values(["Date", "Game"], ascending = [False,True])
     teams = df['Team'].unique().tolist()
     return df, teams
 

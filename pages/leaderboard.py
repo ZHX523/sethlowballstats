@@ -72,7 +72,7 @@ with col1:
 
 with col2:
     second_container = st.container(border=False)
-    second_container.header("🏆  NBA Awards")
+    second_container.header("🏆  Seth Low NBA Awards")
 
 
     functions.awards_tile('MVP 👑',
@@ -121,3 +121,13 @@ with col2:
                           player_avg_filtered.loc[player_avg_filtered['BLK'].idxmax(), 'Player'],
                           (player_avg_filtered['BLK'].max()),
                           "BLK")
+
+    functions.awards_tile("Most Winning Player Award",
+                          player_avg_filtered.loc[player_avg_filtered['W/L'].idxmax(), 'Player'],
+                          (player_avg_filtered['W/L'].max()*100).round(2),
+                          "Win %")
+
+    functions.awards_tile("Clutch These 🥜 Award ",
+                          player_avg_filtered.loc[player_avg_filtered['GW'].idxmax(), 'Player'],
+                          (player_avg_filtered['GW'].max()),
+                          "GW")
