@@ -33,6 +33,7 @@ with st.sidebar:
 
 
 functions.load_data()
+
 players = df['Player'].unique().tolist()
 
 player_avg = df.groupby('Player', as_index=False)[df.select_dtypes(include='number').columns].mean()
@@ -81,26 +82,31 @@ with col2:
                           ,'FPS')
 
 
+    functions.awards_tile("Most Winning Player Award",
+                          player_avg_filtered.loc[player_avg_filtered['W/L'].idxmax(), 'Player'],
+                          (player_avg_filtered['W/L'].max()*100).round(2),
+                          "Win %")
+
     functions.awards_tile("Point God",
                           player_avg_filtered.loc[player_avg_filtered['AST'].idxmax(), 'Player'],
                           player_avg_filtered['AST'].max(),
                           "AST")
 
-    functions.awards_tile("Turnover King",
-                          player_avg_filtered.loc[player_avg_filtered['TO'].idxmax(), 'Player'],
-                          player_avg_filtered['TO'].max(),
-                          "TO")
 
-
-    functions.awards_tile("Rebound Queen",
+    functions.awards_tile("Vaccuum Cleaner",
                           player_avg_filtered.loc[player_avg_filtered['REB'].idxmax(), 'Player'],
                           player_avg_filtered['REB'].max(),
                           "REB")
 
-    functions.awards_tile("Pick Pocket",
+    functions.awards_tile("Hide Your Kids, Award",
                           player_avg_filtered.loc[player_avg_filtered['STL'].idxmax(), 'Player'],
                           player_avg_filtered['STL'].max(),
-                          "STL")
+                          "Kids Stolen")
+
+    functions.awards_tile("Turnover King",
+                          player_avg_filtered.loc[player_avg_filtered['TO'].idxmax(), 'Player'],
+                          player_avg_filtered['TO'].max(),
+                          "TO")
 
     functions.awards_tile("The Smooth Operator",
                           player_avg_filtered.loc[player_avg_filtered['TS %'].idxmax(), 'Player'],
@@ -112,22 +118,12 @@ with col2:
                           (player_avg_filtered['3PM'].max()),
                           "3PM")
 
-    functions.awards_tile("Best Three Point Shooter",
-                          player_avg_filtered.loc[player_avg_filtered['3P %'].idxmax(), 'Player'],
-                          (player_avg_filtered['3P %'].max()*100).round(2),
-                          "3P %")
-
     functions.awards_tile("Block Party",
                           player_avg_filtered.loc[player_avg_filtered['BLK'].idxmax(), 'Player'],
                           (player_avg_filtered['BLK'].max()),
                           "BLK")
 
-    functions.awards_tile("Most Winning Player Award",
-                          player_avg_filtered.loc[player_avg_filtered['W/L'].idxmax(), 'Player'],
-                          (player_avg_filtered['W/L'].max()*100).round(2),
-                          "Win %")
-
     functions.awards_tile("Clutch These 🥜 Award ",
                           player_avg_filtered.loc[player_avg_filtered['GW'].idxmax(), 'Player'],
                           (player_avg_filtered['GW'].max()),
-                          "GW")
+                          "% of 🥜 Clutched")
