@@ -262,6 +262,7 @@ with col2:
 
 st.divider()
 st.subheader("Ranked Data - Averages")
+player_avg = player_avg[~player_avg['Player'].str.contains("#", na=False)]
 st.write(player_avg)
 
 
