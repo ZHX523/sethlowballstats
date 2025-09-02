@@ -33,6 +33,8 @@ with st.sidebar:
     st.divider()
 
 
+df = df[~df['Player'].str.contains("#", na=False)]
+
 def mx_select(selections):
     list_player = pd.Series(True, index=df.index)
 
